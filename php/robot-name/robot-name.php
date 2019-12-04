@@ -1,9 +1,10 @@
 <?php
 
+$GLOBALS['list_names'] = [];
+
 class Robot
 {
     private $name;
-    private $list_names = [];
 
     function __construct()
     {
@@ -15,8 +16,8 @@ class Robot
         $name = $this->rand_string(2);
         $name .= rand(000, 999);
 
-        if (!in_array($name, $this->list_names, true)) {
-            array_push($this->list_names, $name);
+        if (!in_array($name, $GLOBALS['list_names'], true)) {
+            array_push($GLOBALS['list_names'], $name);
             $this->name = $name;
         } else {
             $this->createName();
